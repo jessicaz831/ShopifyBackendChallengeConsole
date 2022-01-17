@@ -1,5 +1,5 @@
 # ShopifyBackendChallengeConsole
-This is my entry for the Shopify Backend Dev Challenge. This version is console only. 
+This is my entry for the Shopify Backend Dev Challenge (2022). This version is console only. 
 Please check out my version with a GUI as well if you are interested: https://github.com/jessicaz831/ShopifyBackendChallengeGUI
 
 Unfortunately, I don't know how to make it a web application, but I hope it's something.
