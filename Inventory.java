@@ -67,6 +67,7 @@ class Inventory {
 				String toEdit = null;
 				String newValue = null;
 				Boolean found = false;
+				Boolean foundName = false;
 
 				if (commandLine.hasNext()) {
 					name = commandLine.next();
@@ -79,19 +80,31 @@ class Inventory {
 						if (inventory.get(i).equals(temp)) {
 							found = true;
 							if (toEdit.equals("name")) {
-								inventory.get(i).setName(newValue);
+								// check for duplicates
+								for (int j = 0; j< inventory.size(); j++) {
+									if (inventory.get(j).getName().equals(newValue)) {
+										foundName = true;
+									}
+								}
+								if (foundName == false) {
+									inventory.get(i).setName(newValue);
+									System.out.println(inventory.get(i).toString());
+								}
+								else {
+									System.out.println(newValue + " is already in inventory");
+								}
 							}
 							else if (toEdit.equals("quantity")) {
 								try {
 									int value = Integer.parseInt(newValue);
 									inventory.get(i).setQuantity(value);
+									System.out.println(inventory.get(i).toString());
 								}
 								catch (NumberFormatException e)  
 								{ 
 									System.out.println(newValue + " is not an integer"); 
 								} 
 							}
-							System.out.println(inventory.get(i).toString());
 						}
 					}
 
